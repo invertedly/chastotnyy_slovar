@@ -144,9 +144,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dict_list.cpp" />
+    <ClCompile Include="dict_map.cpp" />
+    <ClCompile Include="dict_vec.cpp" />
     <ClCompile Include="word_frequency.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dict_list.h" />
+    <ClInclude Include="dict_map.h" />
+    <ClInclude Include="dict_vec.h" />
     <ClInclude Include="word_frequency.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

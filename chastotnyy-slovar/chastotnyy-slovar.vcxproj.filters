@@ -18,9 +18,27 @@
     <ClCompile Include="word_frequency.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="dict_map.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dict_vec.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dict_list.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="word_frequency.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dict_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dict_vec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dict_list.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

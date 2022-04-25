@@ -6,22 +6,57 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 
-//TEST(TestCaseName, TestName) {
-//  EXPECT_EQ(1, 1);
-//  EXPECT_TRUE(true);
-//}
-
 using namespace word_frequency;
-using namespace std;
 
-int main()
+Dict* fill_from_stream(std::istringstream& in, const container& type)
 {
-	istringstream input("abcd abcd abc a a a 0");
-	Dict* dict = Dict::create(input, container::map);
-	dict->output(cout);
-	dict->destroy();
+	Dict* dict = Dict::create(type);
 
-	_CrtDumpMemoryLeaks();
+	std::string word;
 
-	return EXIT_SUCCESS;
+	while (in >> word)
+	{
+		dict->add_word(word);
+	}
+
+	return dict;
+}
+
+TEST(Frequency_dict, List) {
+	std::istringstream in("a a a b b cde");
+
+	Dict* dict = fill_from_stream(in, container::list);
+
+	ASSERT_EQ(dict->get_count("a"), 3);
+	ASSERT_EQ(dict->get_count("b"), 2);
+	ASSERT_EQ(dict->get_count("cde"), 1);
+	ASSERT_EQ(dict->get_count("hello"), 0);
+
+	delete dict;
+}
+
+TEST(Frequency_dict, Map) {
+	std::istringstream in("a a a b b cde");
+
+	Dict* dict = fill_from_stream(in, container::map);
+
+	ASSERT_EQ(dict->get_count("a"), 3);
+	ASSERT_EQ(dict->get_count("b"), 2);
+	ASSERT_EQ(dict->get_count("cde"), 1);
+	ASSERT_EQ(dict->get_count("hello"), 0);
+
+	delete dict;
+}
+
+TEST(Frequency_dict, Vector) {
+	std::istringstream in("a a a b b cde");
+
+	Dict* dict = fill_from_stream(in, container::vector);
+
+	ASSERT_EQ(dict->get_count("a"), 3);
+	ASSERT_EQ(dict->get_count("b"), 2);
+	ASSERT_EQ(dict->get_count("cde"), 1);
+	ASSERT_EQ(dict->get_count("hello"), 0);
+
+	delete dict;
 }
