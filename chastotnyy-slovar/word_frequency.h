@@ -6,6 +6,15 @@
 
 namespace word_frequency
 {
+	class invalid_argument_exception final : public std::exception
+	{
+	public:
+		explicit invalid_argument_exception(const std::string& message) : m_msg_(message) { }
+		const char* what() const noexcept override { return m_msg_.c_str(); }
+	private:
+		const std::string m_msg_;
+	};
+
 	using record = std::pair<std::string, size_t>;
 
 	enum class container
